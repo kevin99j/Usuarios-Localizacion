@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<h:form id="menu">
+
+		<p:menubar>
+			<p:menuitem value="Bienvenido #{controlUsuarios.usuario.nombre}" />
+
+			<f:facet name="options">
+				<p:commandLink rendered="#{controlUsuarios.usuario.nombre != null}"
+					id="logout" actionListener="#{controlUsuarios.logout}"
+					style="margin-right:20px;" oncomplete="logout(xhr, status, args)">
+					<h:outputText value="logout" />
+				</p:commandLink>
+			</f:facet>
+
+
+
+
+		</p:menubar>
+
+
+	</h:form>
+</body>
+<script type="text/javascript">
+	//<![CDATA[
+	function logout(xhr, status, args) {
+		setTimeout(function() {
+			window.location = 'logout.xhtml';
+		}, 500);
+	}
+	//]]>
+</script>
+</html>
